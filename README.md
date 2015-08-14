@@ -1,1 +1,1 @@
-# SockBot-Math
+# SockBot Math Plugin
