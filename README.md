@@ -1,6 +1,17 @@
+[![Build Status](https://travis-ci.org/RaceProUK/SockBot-Math.svg?branch=master)](https://travis-ci.org/RaceProUK/SockBot-Math)
+[![Coverage Status](https://coveralls.io/repos/RaceProUK/SockBot-Math/badge.svg?branch=master)](https://coveralls.io/r/RaceProUK/SockBot-Math?branch=master)
+[![Docs Status](https://readthedocs.org/projects/sockbot-math/badge/?version=latest)](http://sockbot-math.readthedocs.org/)
+
+[![Dependency Status](https://david-dm.org/RaceProUK/SockBot-Math/master.svg)](https://david-dm.org/RaceProUK/SockBot-Math/master)
+[![devDependency Status](https://david-dm.org/RaceProUK/SockBot-Math/master/dev-status.svg)](https://david-dm.org/RaceProUK/SockBot-Math/master#info=devDependencies)
+[![optionalDependency Status](https://david-dm.org/RaceProUK/SockBot-Math/master/optional-status.svg)](https://david-dm.org/RaceProUK/SockBot-Math/master#info=optionalDependencies)
+
+[![Stories in Ready](https://badge.waffle.io/RaceProUK/SockBot-Math.png?label=ready&title=Ready)](https://waffle.io/RaceProUK/SockBot-Math)
+[![Stories in Progress](https://badge.waffle.io/RaceProUK/SockBot-Math.png?label=in%20progress&title=In%20Progress)](https://waffle.io/RaceProUK/SockBot-Math)
+
 #SockBot Math
 
-Math plugin for [SockBot](https://github.com/SockDrawer/SockBot)
+Math plugin for [SockBot](https://github.com/SockDrawer/SockBot).
 
 ##Developers
 
@@ -78,3 +89,7 @@ JSON example:
   }
 }
 ```
+
+#Special Thanks
+
+For creating [SockBot](https://github.com/SockDrawer/SockBot) and just generally being awesome: [Accalia de Elementia](https://github.com/AccaliaDeElementia)

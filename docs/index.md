@@ -1,6 +1,6 @@
 #SockBot Math
 
-Math plugin for [SockBot](https://sockbot.rtfd.org/en/latest/)
+Math plugin for [SockBot](https://sockbot.rtfd.org/en/latest/).
 
 ##Developers
 
@@ -10,8 +10,8 @@ SockBot Math is developed by [SockDrawer](https://github.com/SockDrawer) develop
 
 * Create a folder to install SockBot to
 * Execute the following commands in that folder:
- * `npm install sockbot`
- * `npm install sockbot-math`
+  * `npm install sockbot`
+  * `npm install sockbot-math`
 * Create a configuration file called `Config.yml` in that folder with the following contents:
 ```
 ---
