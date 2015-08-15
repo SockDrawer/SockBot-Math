@@ -31,33 +31,55 @@ describe('Math', () => {
     });
     describe('prepare', () => {
         it('should register command listener for `math`', () => {
-            const spy = sinon.spy((_, __, ___, callback) => callback());
-            math.prepare(undefined, undefined, {onCommand: spy}, undefined);
-            spy.calledOnce.should.be.true;
-            expect(spy.args[0][0]).to.equal('math');
-            expect(spy.args[0][1]).to.equal('math <expression>');
-            expect(spy.args[0][2]).to.be.a('function');
-            expect(spy.args[0][3]).to.be.a('function');
+            const onCommandSpy = sinon.spy((_, __, ___, callback) => callback());
+            math.prepare(undefined, undefined, {onCommand: onCommandSpy}, undefined);
+            onCommandSpy.calledOnce.should.be.true;
+            expect(onCommandSpy.args[0][0]).to.equal('math');
+            expect(onCommandSpy.args[0][1]).to.equal('Evaluate mathematical expressions');
+            expect(onCommandSpy.args[0][2]).to.be.a('function');
+            expect(onCommandSpy.args[0][3]).to.be.a('function');
         });
     });
     describe('doMath', () => {
-        let sandbox, mathSpy;
+        let sandbox, onCommandSpy, createPostSpy;
         beforeEach(() => {
             sandbox = sinon.sandbox.create();
-            mathSpy = sandbox.spy(math, 'doMath');
+            onCommandSpy = sinon.spy((_, __, ___, callback) => callback());
+            createPostSpy = sinon.spy((_, __, ___, callback) => callback());
+            math.prepare(undefined, undefined, {onCommand: onCommandSpy}, {createPost: createPostSpy});
         });
         afterEach(() => {
             sandbox.restore();
         });
+        /* eslint-disable camelcase */
         it('should evaluate expression', () => {
-            const matcher = sinon.match('Expression:').and(sinon.match('Result:'));
-            math.doMath({args: ['2+2']});
-            mathSpy.returned(matcher).should.be.true;
+            math.doMath({
+                args: ['2+2'],
+                post: {
+                    topic_id: 1,
+                    post_number: 2
+                }
+            });
+            createPostSpy.calledOnce.should.be.true;
+            expect(createPostSpy.args[0][0]).to.equal(1);
+            expect(createPostSpy.args[0][1]).to.equal(2);
+            expect(createPostSpy.args[0][2]).to.contain('Expression:').and.to.contain('Result:');
+            expect(createPostSpy.args[0][3]).to.be.a('function');
         });
         it('should report error', () => {
-            const matcher = sinon.match('Unable to evaluate expression').and(sinon.match('Reason:'));
-            math.doMath({args: ['/']});
-            mathSpy.returned(matcher).should.be.true;
+            math.doMath({
+                args: ['/'],
+                post: {
+                    topic_id: 1,
+                    post_number: 2
+                }
+            });
+            createPostSpy.calledOnce.should.be.true;
+            expect(createPostSpy.args[0][0]).to.equal(1);
+            expect(createPostSpy.args[0][1]).to.equal(2);
+            expect(createPostSpy.args[0][2]).to.contain('Unable to evaluate expression').and.to.contain('Reason:');
+            expect(createPostSpy.args[0][3]).to.be.a('function');
         });
+        /* eslint-enable camelcase */
     });
 });

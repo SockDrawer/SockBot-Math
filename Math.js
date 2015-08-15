@@ -7,6 +7,13 @@
  */
 
 const mathjs = require('mathjs');
+let mBrowser;
+
+//Configure MathJS
+mathjs.config({
+    number: 'bignumber',
+    precision: 4096
+});
 
 /**
  * Prepare plugin prior to login
@@ -19,8 +26,9 @@ const mathjs = require('mathjs');
  * @param {SockBot.Browser} browser Web browser for communicating with discourse
  * (see [SockBot docs](https://sockbot.rtfd.org/en/latest/api/lib/browser/) for more details)
  */
-exports.prepare = function (pluginConfig, botConfig, events, browser) { //eslint-disable-line no-unused-vars
-    events.onCommand('math', 'math <expression>', exports.doMath, () => 0);
+exports.prepare = function (pluginConfig, botConfig, events, browser) {
+    mBrowser = browser;
+    events.onCommand('math', 'Evaluate mathematical expressions', exports.doMath, () => 0);
 };
 
 /**
@@ -38,23 +46,26 @@ exports.stop = function () {};
  *
  * @param {SockBot.Command} command Notification recieved
  * (see [SockBot docs](https://sockbot.rtfd.org/en/latest/api/lib/commands/#module_commands..command) for more details)
- * @returns {string} The result of executing the command
  */
 exports.doMath = function doMath(command) {
     const expression = command.args.join(' ');
     try {
-        return [
+        const message = [
             'Expression:',
             expression.trim(),
+            '', //Blank line for readibility
             'Result:',
             mathjs.eval(expression)
         ].join('\n');
+        mBrowser.createPost(command.post.topic_id, command.post.post_number, message, () => 0);
     } catch (e) {
-        return [
+        const error = [
             'Unable to evaluate expression',
             expression.trim(),
+            '', //Blank line for readibility
             'Reason:',
             e.message
         ].join('\n');
+        mBrowser.createPost(command.post.topic_id, command.post.post_number, error, () => 0);
     }
 };
