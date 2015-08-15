@@ -1,29 +1,4 @@
-#SockBot Math
-
-Math plugin for [SockBot](https://github.com/SockDrawer/SockBot)
-
-##Developers
-
-SockBot Math is developed by [SockDrawer](https://github.com/SockDrawer) developer [RaceProUK](https://github.com/RaceProUK).
-
-##Installation
-
-The preferred method of installation is via NPM; simply run this command within the SockBot installation folder:
-```
-npm install sockbot-math
-```
-
-Other methods of installation are possible e.g. cloning the git repository, but only installation via NPM is supported.
-
-###Post Install Setup
-
-If you installed via NPM skip this step as NPM has already installed all necessary dependencies.
-Otherwise you will need to run the following command in the folder where you installed SockBot Math:
-```
-npm install
-```
-
-##Configuration
+#Configuration
 
 SockBot Math requires no special configuration; all that is needed is a single line in the SockBot configuration file.
 
