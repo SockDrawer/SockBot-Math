@@ -9,7 +9,7 @@ Math plugin for [SockBot](https://sockbot.rtfd.org/en/latest/)
   * [.prepare(pluginConfig, botConfig, events, browser)](#module_Math.prepare)
   * [.start()](#module_Math.start)
   * [.stop()](#module_Math.stop)
-  * [.doMath(command)](#module_Math.doMath) ⇒ <code>string</code>
+  * [.doMath(command)](#module_Math.doMath)
 
 <a name="module_Math.prepare"></a>
 ### Math.prepare(pluginConfig, botConfig, events, browser)
@@ -35,11 +35,10 @@ Stop the plugin prior to exit or reload
 
 **Kind**: static method of <code>[Math](#module_Math)</code>  
 <a name="module_Math.doMath"></a>
-### Math.doMath(command) ⇒ <code>string</code>
+### Math.doMath(command)
 Parse and evaluate the supplied methematical expression
 
 **Kind**: static method of <code>[Math](#module_Math)</code>  
-**Returns**: <code>string</code> - The result of executing the command  
 
 | Param | Type | Description |
 | --- | --- | --- |
