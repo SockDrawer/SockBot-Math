@@ -6,15 +6,19 @@
  * @license MIT
  */
 
+const mathjs = require('mathjs');
+
 /**
  * Prepare Plugin prior to login
  *
  * @param {*} plugConfig Plugin specific configuration
- * @param {Config} config Overall bot configuration
- * @param {externals.events.SockEvents} events EventEmitter used for the bot
- * @param {Browser} browser Web browser for communicating with discourse
+ * @param {SockBot.Config} config Overall bot configuration
+ * @param {SockBot.Events.SockEvents} events EventEmitter used for the bot
+ * @param {SockBot.Browser} browser Web browser for communicating with discourse
  */
-exports.prepare = function (plugConfig, config, events, browser) {};
+exports.prepare = function (plugConfig, config, events, browser) { //eslint-disable-line no-unused-vars
+    events.onCommand('math', 'math <expression>', exports.doMath, () => 0);
+};
 
 /**
  * Start the plugin after login
@@ -27,10 +31,26 @@ exports.start = function () {};
 exports.stop = function () {};
 
 /**
- * Handle notifications
+ * Parse and evaluate the supplied methematical expression
  *
- * @param {external.notifications.Notification} notification Notification recieved
- * @param {external.topics.Topic} topic Topic trigger post belongs to
- * @param {external.posts.CleanedPost} post Post that triggered notification
+ * @param {SockBot.Commands.Command} command Notification recieved
+ * @returns {string} The result of executing the command
  */
-exports.handler = function handler(notification, topic, post) {};
+exports.doMath = function doMath(command) {
+    const expression = command.args.join(' ');
+    try {
+        return [
+            'Expression:',
+            expression.trim(),
+            'Result:',
+            mathjs.eval(expression)
+        ].join('\n');
+    } catch (e) {
+        return [
+            'Unable to evaluate expression',
+            expression.trim(),
+            'Reason:',
+            e.message
+        ].join('\n');
+    }
+};

@@ -1,6 +1,6 @@
 {
   "name": "sockbot-math",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "Math plugin for SockDrawer's SockBot",
   "repository": "https://github.com/RaceProUK/SockBot-Math",
   "license": "MIT",
@@ -10,12 +10,14 @@
     "email": "raceprouk@sockdrawer.io"
   },
   "main": "./Math.js",
-  "bin": "./node_modules/SockBot/lib/cli.js",
+  "bin": "./node_modules/sockbot/lib/cli.js",
   "engines": {
     "node": ">=0.11",
     "iojs": ">=1.7"
   },
   "dependencies": {
+    "mathjs": "^2.1.1",
+    "sockbot": "^2.9.1"
   },
   "devDependencies": {
     "chai": "^3.2.0",
@@ -31,7 +33,7 @@
     "sinon": "^1.15.1"
   },
   "scripts": {
-    "start": "node --harmony --harmony_arrow_functions node_modules/SockBot/lib/cli.js",
+    "start": "node --harmony --harmony_arrow_functions node_modules/sockbot/lib/cli.js",
     "lint": "node --harmony --harmony_arrow_functions node_modules/gulp/bin/gulp.js lint",
     "test": "node --harmony --harmony_arrow_functions node_modules/gulp/bin/gulp.js test",
     "gulp": "node --harmony --harmony_arrow_functions node_modules/gulp/bin/gulp.js",
