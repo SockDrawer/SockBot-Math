@@ -10,7 +10,6 @@
     "email": "raceprouk@sockdrawer.io"
   },
   "main": "./Math.js",
-  "bin": "./Math.js",
   "engines": {
     "node": ">=0.11",
     "iojs": ">=1.7"
