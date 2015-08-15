@@ -1,28 +1,28 @@
 <a name="module_Math"></a>
 ## Math
-Math
+Math plugin for [SockBot](https://sockbot.rtfd.org/en/latest/)
 
 **Author:** RaceProUK  
 **License**: MIT  
 
 * [Math](#module_Math)
-  * [.prepare(plugConfig, config, events, browser)](#module_Math.prepare)
+  * [.prepare(pluginConfig, botConfig, events, browser)](#module_Math.prepare)
   * [.start()](#module_Math.start)
   * [.stop()](#module_Math.stop)
   * [.doMath(command)](#module_Math.doMath) ⇒ <code>string</code>
 
 <a name="module_Math.prepare"></a>
-### Math.prepare(plugConfig, config, events, browser)
-Prepare Plugin prior to login
+### Math.prepare(pluginConfig, botConfig, events, browser)
+Prepare plugin prior to login
 
 **Kind**: static method of <code>[Math](#module_Math)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| plugConfig | <code>\*</code> | Plugin specific configuration |
-| config | <code>SockBot.Config</code> | Overall bot configuration |
-| events | <code>SockBot.Events.SockEvents</code> | EventEmitter used for the bot |
-| browser | <code>SockBot.Browser</code> | Web browser for communicating with discourse |
+| pluginConfig | <code>\*</code> | Plugin specific configuration |
+| botConfig | <code>SockBot.Config</code> | Overall bot configuration (see [SockBot docs](https://sockbot.rtfd.org/en/latest/api/lib/config/) for more details) |
+| events | <code>SockBot.SockEvents</code> | EventEmitter used for the bot (see [SockBot docs](https://sockbot.rtfd.org/en/latest/api/external/events/#module_SockEvents) for more details) |
+| browser | <code>SockBot.Browser</code> | Web browser for communicating with discourse (see [SockBot docs](https://sockbot.rtfd.org/en/latest/api/lib/browser/) for more details) |
 
 <a name="module_Math.start"></a>
 ### Math.start()
@@ -43,5 +43,5 @@ Parse and evaluate the supplied methematical expression
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>SockBot.Commands.Command</code> | Notification recieved |
+| command | <code>SockBot.Command</code> | Notification recieved (see [SockBot docs](https://sockbot.rtfd.org/en/latest/api/lib/commands/#module_commands..command) for more details) |
 
