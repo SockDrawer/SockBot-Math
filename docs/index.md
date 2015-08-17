@@ -9,7 +9,8 @@ SockBot Math is developed by [SockDrawer](https://github.com/SockDrawer) develop
 ##Quickstart Guide
 
 * Create a folder to install to
-* Run `npm install sockbot-math`; this will install `sockbot` as a dependency
+* Run `npm install sockbot`
+* Run `npm install sockbot-math`
 * Create a configuration file called `Config.yml` in that folder with the following contents:
 ```
 ---
