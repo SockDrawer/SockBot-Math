@@ -1,5 +1,5 @@
 'use strict';
-/*globals describe, it, beforeEach, afterEach*/
+/*globals describe, it, before, afterEach*/
 
 const chai = require('chai'),
     sinon = require('sinon');
@@ -43,7 +43,7 @@ describe('Math', () => {
     describe('doMath', () => {
         const onCommandSpy = sinon.spy((_, __, ___, callback) => callback());
         const createPostSpy = sinon.spy((_, __, ___, callback) => callback());
-        beforeEach(() => {
+        before(() => {
             math.prepare(undefined, undefined, {onCommand: onCommandSpy}, {createPost: createPostSpy});
         });
         afterEach(() => {
