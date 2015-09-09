@@ -20,7 +20,7 @@ describe('Math', () => {
             expect(math.stop).to.be.a('function');
         });
         it('should export doMath()', () => {
-            expect(math.doMath).to.be.a('function');
+            expect(math.privateFns.doMath).to.be.a('function');
         });
         it('should have start() as a stub function', () => {
             expect(math.start).to.not.throw();
@@ -36,28 +36,26 @@ describe('Math', () => {
             onCommandSpy.calledOnce.should.be.true;
             expect(onCommandSpy.args[0][0]).to.equal('math');
             expect(onCommandSpy.args[0][1]).to.equal('Evaluate mathematical expressions');
-            expect(onCommandSpy.args[0][2]).to.be.a('function');
+            expect(onCommandSpy.args[0][2]).to.equal(math.privateFns.doMath);
             expect(onCommandSpy.args[0][3]).to.be.a('function');
         });
     });
     describe('doMath', () => {
-        let sandbox, onCommandSpy, createPostSpy;
+        const onCommandSpy = sinon.spy((_, __, ___, callback) => callback());
+        const createPostSpy = sinon.spy((_, __, ___, callback) => callback());
         beforeEach(() => {
-            sandbox = sinon.sandbox.create();
-            onCommandSpy = sinon.spy((_, __, ___, callback) => callback());
-            createPostSpy = sinon.spy((_, __, ___, callback) => callback());
             math.prepare(undefined, undefined, {onCommand: onCommandSpy}, {createPost: createPostSpy});
         });
         afterEach(() => {
-            sandbox.restore();
+            onCommandSpy.reset();
+            createPostSpy.reset();
         });
-        /* eslint-disable camelcase */
         it('should evaluate expression', () => {
-            math.doMath({
+            math.privateFns.doMath({
                 args: ['2+2'],
                 post: {
-                    topic_id: 1,
-                    post_number: 2
+                    'topic_id': 1,
+                    'post_number': 2
                 }
             });
             createPostSpy.calledOnce.should.be.true;
@@ -67,11 +65,11 @@ describe('Math', () => {
             expect(createPostSpy.args[0][3]).to.be.a('function');
         });
         it('should report error', () => {
-            math.doMath({
+            math.privateFns.doMath({
                 args: ['/'],
                 post: {
-                    topic_id: 1,
-                    post_number: 2
+                    'topic_id': 1,
+                    'post_number': 2
                 }
             });
             createPostSpy.calledOnce.should.be.true;
@@ -80,6 +78,5 @@ describe('Math', () => {
             expect(createPostSpy.args[0][2]).to.contain('Unable to evaluate expression').and.to.contain('Reason:');
             expect(createPostSpy.args[0][3]).to.be.a('function');
         });
-        /* eslint-enable camelcase */
     });
 });

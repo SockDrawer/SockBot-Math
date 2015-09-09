@@ -9,6 +9,10 @@
 const mathjs = require('mathjs');
 let mBrowser;
 
+const privateFns = {
+    doMath: doMath
+};
+
 //Configure MathJS
 mathjs.config({
     number: 'bignumber',
@@ -28,7 +32,7 @@ mathjs.config({
  */
 exports.prepare = function (pluginConfig, botConfig, events, browser) {
     mBrowser = browser;
-    events.onCommand('math', 'Evaluate mathematical expressions', exports.doMath, () => 0);
+    events.onCommand('math', 'Evaluate mathematical expressions', doMath, () => 0);
 };
 
 /**
@@ -47,7 +51,7 @@ exports.stop = function () {};
  * @param {SockBot.Command} command Notification recieved
  * (see [SockBot docs](https://sockbot.rtfd.org/en/latest/api/lib/commands/#module_commands..command) for more details)
  */
-exports.doMath = function doMath(command) {
+function doMath(command) {
     const expression = command.args.join(' ');
     try {
         const message = [
@@ -69,3 +73,9 @@ exports.doMath = function doMath(command) {
         mBrowser.createPost(command.post.topic_id, command.post.post_number, error, () => 0);
     }
 };
+
+/* istanbul ignore else */
+if (typeof GLOBAL.describe === 'function') {
+    //test is running
+    exports.privateFns = privateFns;
+}
