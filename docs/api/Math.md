@@ -6,10 +6,12 @@ Math plugin for [SockBot](https://sockbot.rtfd.org/en/latest/)
 **License**: MIT  
 
 * [Math](#module_Math)
-  * [.prepare(pluginConfig, botConfig, events, browser)](#module_Math.prepare)
-  * [.start()](#module_Math.start)
-  * [.stop()](#module_Math.stop)
-  * [.doMath(command)](#module_Math.doMath)
+  * _static_
+    * [.prepare(pluginConfig, botConfig, events, browser)](#module_Math.prepare)
+    * [.start()](#module_Math.start)
+    * [.stop()](#module_Math.stop)
+  * _inner_
+    * [~doMath(command)](#module_Math..doMath)
 
 <a name="module_Math.prepare"></a>
 ### Math.prepare(pluginConfig, botConfig, events, browser)
@@ -34,11 +36,11 @@ Start the plugin after login
 Stop the plugin prior to exit or reload
 
 **Kind**: static method of <code>[Math](#module_Math)</code>  
-<a name="module_Math.doMath"></a>
-### Math.doMath(command)
+<a name="module_Math..doMath"></a>
+### Math~doMath(command)
 Parse and evaluate the supplied methematical expression
 
-**Kind**: static method of <code>[Math](#module_Math)</code>  
+**Kind**: inner method of <code>[Math](#module_Math)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
