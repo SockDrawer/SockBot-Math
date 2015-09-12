@@ -11,7 +11,15 @@
 
 #SockBot Math
 
-Math plugin for [SockBot](https://github.com/SockDrawer/SockBot).
+Math plugin for [SockBot](https://github.com/SockDrawer/SockBot) version 2.0.0 or later; uses the [MathJS](http://mathjs.org/docs/) library to evaluate mathematical expressions.
+
+##Usage
+
+SockBot Math registers the command `!math`, which takes a mathematical expression as its sole argument, and can either be part of a summons, a reply, or a private message.
+
+Command syntax: `!math [expression]`
+
+Example: `!math sqrt(square(3) + square(4))`
 
 ##Developers
 

@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "mathjs": "^2.1.1",
-    "sockbot": "^2.10.2"
+    "sockbot": "^2.0.0"
   },
   "devDependencies": {
     "chai": "^3.2.0",
