@@ -90,6 +90,6 @@ JSON example:
 }
 ```
 
-#Special Thanks
+##Special Thanks
 
 For creating [SockBot](https://github.com/SockDrawer/SockBot) and just generally being awesome: [Accalia de Elementia](https://github.com/AccaliaDeElementia)
