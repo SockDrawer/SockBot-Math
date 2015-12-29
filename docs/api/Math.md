@@ -6,12 +6,12 @@ Math plugin for [SockBot](https://sockbot.rtfd.org/en/latest/)
 **License**: MIT  
 
 * [Math](#module_Math)
-  * _static_
-    * [.prepare(pluginConfig, botConfig, events, browser)](#module_Math.prepare)
-    * [.start()](#module_Math.start)
-    * [.stop()](#module_Math.stop)
-  * _inner_
-    * [~doMath(command)](#module_Math..doMath)
+    * _static_
+        * [.prepare(pluginConfig, botConfig, events, browser)](#module_Math.prepare)
+        * [.start()](#module_Math.start)
+        * [.stop()](#module_Math.stop)
+    * _inner_
+        * [~doMath(command)](#module_Math..doMath)
 
 <a name="module_Math.prepare"></a>
 ### Math.prepare(pluginConfig, botConfig, events, browser)
