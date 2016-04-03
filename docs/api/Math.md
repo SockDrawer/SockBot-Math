@@ -1,4 +1,5 @@
 <a name="module_Math"></a>
+
 ## Math
 Math plugin for [SockBot](https://sockbot.rtfd.org/en/latest/)
 
@@ -14,6 +15,7 @@ Math plugin for [SockBot](https://sockbot.rtfd.org/en/latest/)
         * [~doMath(command)](#module_Math..doMath)
 
 <a name="module_Math.prepare"></a>
+
 ### Math.prepare(pluginConfig, botConfig, events, browser)
 Prepare plugin prior to login
 
@@ -27,16 +29,19 @@ Prepare plugin prior to login
 | browser | <code>SockBot.Browser</code> | Web browser for communicating with discourse (see [SockBot docs](https://sockbot.rtfd.org/en/latest/api/lib/browser/) for more details) |
 
 <a name="module_Math.start"></a>
+
 ### Math.start()
 Start the plugin after login
 
 **Kind**: static method of <code>[Math](#module_Math)</code>  
 <a name="module_Math.stop"></a>
+
 ### Math.stop()
 Stop the plugin prior to exit or reload
 
 **Kind**: static method of <code>[Math](#module_Math)</code>  
 <a name="module_Math..doMath"></a>
+
 ### Math~doMath(command)
 Parse and evaluate the supplied methematical expression
 
