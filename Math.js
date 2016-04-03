@@ -15,8 +15,8 @@ const privateFns = {
 
 //Configure MathJS
 mathjs.config({
-    number: 'bignumber',
-    precision: 4096
+    number: 'BigNumber',
+    precision: 1024
 });
 
 /**
