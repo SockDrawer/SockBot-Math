@@ -1,11 +1,11 @@
 [![Coverage Status](https://coveralls.io/repos/SockDrawer/SockBot-Math/badge.svg?branch=master)](https://coveralls.io/r/SockDrawer/SockBot-Math?branch=master)
 [![Docs Status](https://readthedocs.org/projects/sockbot-math/badge/?version=latest)](http://sockbot-math.readthedocs.org/)
 
-#SockBot Math
+# SockBot Math
 
 Math plugin for [SockBot](https://github.com/SockDrawer/SockBot) version 2.0.0 or later; uses the [MathJS](http://mathjs.org/docs/) library to evaluate mathematical expressions.
 
-##Usage
+## Usage
 
 SockBot Math registers the command `!math`, which takes a mathematical expression as its sole argument, and can either be part of a summons, a reply, or a private message.
 
@@ -13,11 +13,11 @@ Command syntax: `!math [expression]`
 
 Example: `!math sqrt(square(3) + square(4))`
 
-##Developers
+## Developers
 
 SockBot Math is developed by [SockDrawer](https://github.com/SockDrawer) developer [RaceProUK](https://github.com/RaceProUK).
 
-##Installation
+## Installation
 
 The preferred method of installation is via NPM; simply run this command within the SockBot installation folder:
 ```
@@ -26,7 +26,7 @@ npm install sockbot-math
 
 Other methods of installation are possible e.g. cloning the git repository, but only installation via NPM is supported.
 
-###Post Install Setup
+### Post Install Setup
 
 If you installed via NPM skip this step as NPM has already installed all necessary dependencies.
 Otherwise you will need to run the following command in the folder where you installed SockBot Math:
@@ -34,7 +34,7 @@ Otherwise you will need to run the following command in the folder where you ins
 npm install
 ```
 
-##Configuration
+## Configuration
 
 SockBot Math requires no special configuration; all that is needed is a single line in the SockBot configuration file.
 
@@ -90,6 +90,6 @@ JSON example:
 }
 ```
 
-##Special Thanks
+## Special Thanks
 
 For creating [SockBot](https://github.com/SockDrawer/SockBot) and just generally being awesome: [Accalia de Elementia](https://github.com/AccaliaDeElementia)
